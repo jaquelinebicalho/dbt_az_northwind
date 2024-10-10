@@ -13,3 +13,6 @@ sources:
           - name: customer_id
             description: Unique ID for this table
       - name: order_details
+      - name: products
+      - name: categories
+      - name: suppliers

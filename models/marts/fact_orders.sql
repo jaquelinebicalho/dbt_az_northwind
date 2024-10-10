@@ -9,8 +9,21 @@ with
         from {{ ref("stg_orders") }}
     )
 
-    select 
-        customers.sk_customer
-        , orders.*
-    from orders
-    left join customers on orders.customer_id = customers.customer_id
+    ,   category as (
+        select *
+        from {{ ref("dim_category") }}
+    )
+
+    ,   product as (
+        select *
+        from {{ ref("dim_product") }}
+    )
+
+    ,   suppliers as (
+        select *
+        from {{ ref("dim_suppliers") }}
+    )
+
+    select *
+    from customers
+
